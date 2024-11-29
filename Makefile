@@ -1,4 +1,5 @@
-IMAGE_NAME=todo-list-monngodb
+# IMAGE_NAME=generator-mongodb
+IMAGE_NAME=todo-list-mongodb
 SERVICE_PORT=8080
 USER_NAME = 'admin'
 USER_PASSWORD = 'ilimit123'
@@ -11,7 +12,7 @@ build:
 	docker build -t ${IMAGE_NAME} .
 
 run:
-	docker run -p $(SERVICE_PORT):$(SERVICE_PORT) --name=${IMAGE_NAME} -e USER_NAME=$(USER_NAME) -e USER_PASSWORD=$(USER_PASSWORD) -e DB_IP=$(DB_IP) -e DB_PORT=$(DB_PORT) -e DB_AUTH=$(DB_AUTH) -e DB_NAME=$(DB_NAME) ${IMAGE_NAME}
+	docker run --network=host -p $(SERVICE_PORT):$(SERVICE_PORT) --name=${IMAGE_NAME} -e USER_NAME=$(USER_NAME) -e USER_PASSWORD=$(USER_PASSWORD) -e DB_IP=$(DB_IP) -e DB_PORT=$(DB_PORT) -e DB_AUTH=$(DB_AUTH) -e DB_NAME=$(DB_NAME) ${IMAGE_NAME}
 
 
 # build-todo:
