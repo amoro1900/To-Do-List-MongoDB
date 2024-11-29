@@ -70,3 +70,9 @@ Genera una imatge nova per generar tasques automàticament seguint les següents
 6. Fes una cerca d'una tasca. Agafa dels logs el nom d'una tasca i fes una cerca db.todotasks.findOne({content:"xxxx"})
 7.Ha trigat força estona perquè no hi havia index. Crea un index sobre el camp content i repeteix la cerca. db.todotasks.createIndex({content:1}, {unique:true}). Hauria de ser molt més ràpid.
 
+### 4. Mongodb amb replicació
+1. Item Recrea el servei de mongodb però aquest cop amb una arquitectura Replicaset amb 3 nodes. Ull! Redueix els temps i weight dels 3 nodes perquè es faci el canvi de primary ràpidament (veure secció replicaSetConfigurationSettings [heartbeatTimeoutSecs, electionTimeoutMillis,heartbeatIntervalMillis ])
+2. Item Comprova que les dades inserides pel web es repliquen a tots els nodes.
+3. Item Tomba el container del node Primary i comprova que algun dels secondary es converteix en primary.
+4. Item realitza un backup però amb amb la opció --oplog (si pot ser mentres el generator insereix dades) i fes una restauració.
+5. Item Comprova que la restauració és com un snapshot de l'estat de l'inici del mongodump.
