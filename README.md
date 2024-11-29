@@ -28,8 +28,8 @@ apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
 - role: control-plane
   extraPortMappings:
-  - containerPort: 30000
-    hostPort: 30000
+  - containerPort: 8080
+    hostPort: 8080
     protocol: TCP
 - role: worker
 - role: worker
@@ -60,3 +60,5 @@ Connectat a MongoDB!
 1.Entra a l'aplicació via navegador i crea/modifica/elimina tasques i comprova amb MongoCompass o amb mongosh que les dades es es desen correctament. 
 2.Realitza un backup de la base de dades del client amb l'eina mongodump.
 3.Esborra totes/algnues tasques (des del web o la shell). Verificat que ja no hi són a la base de dades. Restaura el backup amb l'eina mongorestore i comprova que s'han recuperat les tasques.
+
+
