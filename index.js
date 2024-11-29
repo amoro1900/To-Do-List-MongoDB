@@ -99,4 +99,13 @@ app.route("/remove/:id").get(async (req, res) => {
 });
 
 
-app.listen(8080, () => console.log("Server Up and running at http://localhost:8080"));
+const server = app.listen(8080, () => console.log("Server Up and running at http://localhost:8080"));
+
+
+process.on('SIGINT', () => {
+  console.log('Apagant l\'aplicació...');
+  server.close(() => {
+    console.log('Servidor tancat-se...')
+    process.exit(0)
+    });
+  });    
