@@ -61,4 +61,8 @@ Connectat a MongoDB!
 2.  Item Realitza un backup de la base de dades del client amb l'eina mongodump.
 3.  Item Esborra totes/algnues tasques (des del web o la shell). Verificat que ja no hi són a la base de dades. Restaura el backup amb l'eina mongorestore i comprova que s'han recuperat les tasques.
 
+Genera una imatge nova per generar tasques automàticament seguint les següents instruccions:
+1.Al Dockerfile, comenta la línia 'ENTRYPOINT ["node" , "index.js"]'  i descomenta la línia ENTRYPOINT ["node" , "task-generator.js"]'.
+2.Al Makefile
 
+### 3. Accions post-posada en marxa

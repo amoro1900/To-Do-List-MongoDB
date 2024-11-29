@@ -8,10 +8,10 @@ DB_AUTH = 'admin'
 DB_NAME = 'test'
 
 build:
-	docker build -t todo-list-monngodb .
+	docker build -t ${IMAGE_NAME} .
 
 run:
-	docker run -p $(SERVICE_PORT):$(SERVICE_PORT) --name='todo-list-monngodb' -e USER_NAME=$(USER_NAME) -e USER_PASSWORD=$(USER_PASSWORD) -e DB_IP=$(DB_IP) -e DB_PORT=$(DB_PORT) -e DB_AUTH=$(DB_AUTH) -e DB_NAME=$(DB_NAME) todo-list-monngodb
+	docker run -p $(SERVICE_PORT):$(SERVICE_PORT) --name=${IMAGE_NAME} -e USER_NAME=$(USER_NAME) -e USER_PASSWORD=$(USER_PASSWORD) -e DB_IP=$(DB_IP) -e DB_PORT=$(DB_PORT) -e DB_AUTH=$(DB_AUTH) -e DB_NAME=$(DB_NAME) ${IMAGE_NAME}
 
 
 # build-todo:
