@@ -16,7 +16,7 @@ const main = async function () {
     const DB_CONNECT = `mongodb://${userName}:${userPass}@${dbIp}:${dbPort}/${dbName}?authSource=${dbAuth}`
     const mongoClient = new MongoClient(DB_CONNECT);
     const mongoConnection = await mongoClient.connect()
-    const db_connection = mongoConnection.db('test')
+    const db_connection = mongoConnection.db(dbName)
 
     const col3 = db_connection.collection("todotasks")
     let counter = 0
